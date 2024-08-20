@@ -1,5 +1,5 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import Markdown from "react-markdown";
 import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
 
@@ -16,7 +16,7 @@ const PostContent = () => {
   return (
     <article className={classes.content}>
       <PostHeader title={DUMMY_POST.title} image={imagePath} />
-      <ReactMarkdown>{DUMMY_POST.content}</ReactMarkdown>
+      <Markdown>{DUMMY_POST.content}</Markdown>
     </article>
   );
 };
