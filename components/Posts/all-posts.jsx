@@ -6,7 +6,7 @@ const AllPosts = (props) => {
   return (
     <section className={classes.posts}>
       <h1>All Posts</h1>
-      <PostGrid props={props.posts} />
+      <PostGrid posts={props.posts} />
     </section>
   );
 };
