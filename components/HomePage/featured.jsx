@@ -1,10 +1,12 @@
-import React from 'react'
-import classes from './featured-posts.module.css'
+import React from "react";
+import classes from "./featured-posts.module.css";
 
 const FeaturedPost = () => {
   return (
-    <div>FeaturedPost</div>
-  )
-}
+    <section className={classes.latest}>
+      <h2>Featured Post</h2>
+    </section>
+  );
+};
 
-export default FeaturedPost
+export default FeaturedPost;
