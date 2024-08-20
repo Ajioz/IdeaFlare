@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import classes from "./all-posts.module.css";
+import PostGrid from "./post-grid";
 
-const AllPosts = () => {
+const AllPosts = (props) => {
   return (
-    <div>AllPosts</div>
-  )
-}
+    <section className={classes.posts}>
+      <h1>All Posts</h1>
+      <PostGrid props={props.posts} />
+    </section>
+  );
+};
 
-export default AllPosts
+export default AllPosts;
