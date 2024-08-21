@@ -19,6 +19,6 @@ function printBasics() {
 }
 
 printBasics();
-
 ```
+
 Learn more about it [here](https://ajiozi.com).
