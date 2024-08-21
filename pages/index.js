@@ -3,18 +3,23 @@ import Hero from "../components/HomePage/hero";
 import FeaturedPost from "../components/HomePage/featured";
 import { getFeaturedPost } from "../lib/post-util";
 
-
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <>
       <Hero />
-      <FeaturedPost posts={DUMMY_POST} />
+      <FeaturedPost posts={props.posts} />
     </>
   );
 };
 
 export default HomePage;
 
-export function getStaticProps() {
-  const featuredPost = getFeaturedPost()
+export async function getServerSideProps() {
+  const featuredPosts = await getFeaturedPost();
+
+  return {
+    props: {
+      posts: featuredPosts,
+    },
+  };
 }
