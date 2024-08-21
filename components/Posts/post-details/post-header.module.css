@@ -1,6 +1,12 @@
+.headerContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
 
 .header {
   padding-bottom: var(--size-8);
+  width: 100%;
   border-bottom: 8px solid var(--color-primary-100);
   margin: var(--size-4) 0;
   display: flex;
@@ -22,6 +28,17 @@
   object-fit: cover;
   width: 200px;
   height: 120px;
+}
+.author{
+  display: flex;
+  width: 50%;
+  justify-content: left;
+  align-items: center;
+}
+
+.author p{
+  font-family: monospace;
+  font-weight: bold;
 }
 
 @media (min-width: 768px) {

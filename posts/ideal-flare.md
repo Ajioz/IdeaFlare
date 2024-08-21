@@ -7,7 +7,6 @@ excerpt: "Nextjs is the react framework for production, which makes building goo
 isFeatured: true
 ---
 
-` This is a title`
 
 NextJS is a **framework for ReactJS**.
 
@@ -31,6 +30,6 @@ In this article, we'll dive into the core concepts and features NextJS has to of
 
 ## File-based Routing
 
-![Create routes via your file + folder structure](nextjs-file-based-routing.png)
+![Create routes via your file + folder structure](/images/posts/ideal-/nextjs-file-based-routing.png)
 
 ... More content ...

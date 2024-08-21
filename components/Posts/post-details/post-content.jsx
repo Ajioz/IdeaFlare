@@ -7,7 +7,7 @@ const PostContent = ({ post }) => {
   const imagePath = `/images/posts/${post.slug}/${post.image}`;
   return (
     <article className={classes.content}>
-      <PostHeader title={post.title} image={imagePath} />
+      <PostHeader title={post.title} image={imagePath} author={post.author} />
       <Markdown>{post.content}</Markdown>
     </article>
   );
