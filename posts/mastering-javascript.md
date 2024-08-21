@@ -1,13 +1,17 @@
-title	excerpt	image	isFeatured	date
-Mastering JavaScript
-JavaScript is the most important programming language for web development. You probably don't know it well enough!
-mastering-js-thumb.png
-false
-2021-10-30
+---
+title: "Mastering JavaScript"
+date: "2021-10-30"
+author: "Ajiroghene Sunny"
+image: mastering-js-thumb.png
+excerpt: "JavaScript is the most important programming language for web development. You probably don't know it well enough!"
+isFeatured: false
+---
+
 JavaScript powers the web - it's the most important programming language you need to know as a web developer.
 
 For example, you should understand code like this:
 
+```js
 const basics = 'Okay, that should not be too difficult actually';
 
 function printBasics() {
@@ -15,3 +19,6 @@ function printBasics() {
 }
 
 printBasics();
+
+```
+Learn more about it [here](https://ajiozi.com).
