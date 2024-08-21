@@ -1,14 +1,15 @@
 import React from "react";
 import PostContent from "../../components/Posts/post-details/post-content";
-import { getAllPosts } from "../../lib/post-util";
+import { getPostData, getPostsFiles } from "../../lib/post-util";
 
-const PostDetailPage = () => {
-  return <PostContent />;
+const PostDetailPage = (props) => {
+  return <PostContent post={props.post} />;
 };
 
 export async function getStaticProps(context) {
-  // const slug = context.params.slug;
-  const { params: { slug } } = context;
+  const {
+    params: { slug },
+  } = context;
 
   const postDetail = await getPostData(slug);
 
@@ -16,14 +17,14 @@ export async function getStaticProps(context) {
     props: {
       post: postDetail,
     },
-    revalidate: 600
+    revalidate: 600,
   };
 }
 
 export async function getStaticPaths() {
-  const posts = await getAllPosts();
-  const pathId = posts.map((post) => post.slug);
-  const paths = pathId.map((slug) => ({ params: { slug } }));
+  const postFileNames = await getPostsFiles();
+  const slugs = postFileNames.map((fileName) => fileName.replace(/\.md$/, ""));
+  const paths = slugs.map((slug) => ({ params: { slug } }));
   return {
     paths,
     fallback: true,
