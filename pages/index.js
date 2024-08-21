@@ -14,12 +14,14 @@ const HomePage = (props) => {
 
 export default HomePage;
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
+
   const featuredPosts = await getFeaturedPost();
 
   return {
     props: {
       posts: featuredPosts,
     },
+    revalidate: 600,
   };
 }
