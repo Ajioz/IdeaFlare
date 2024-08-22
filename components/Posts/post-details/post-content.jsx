@@ -3,13 +3,13 @@ import Markdown from "react-markdown";
 import PostHeader from "./post-header";
 import classes from "./post-content.module.css";
 import Image from "next/image";
-import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import { PrismLight as Syntax } from "react-syntax-highlighter";
 import atomDark from "react-syntax-highlighter/dist/cjs/styles/prism/atom-dark";
 import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
 import css from "react-syntax-highlighter/dist/cjs/languages/prism/css";
 
-SyntaxHighlighter.registerLanguage("js", js);
-SyntaxHighlighter.registerLanguage("css", css);
+Syntax.registerLanguage("js", js);
+Syntax.registerLanguage("css", css);
 
 const btnStyle = (props) => ({
   position: "absolute",
@@ -26,10 +26,9 @@ const btnStyle = (props) => ({
 
 const PostContent = ({ post }) => {
   const [copied, setCopied] = useState(false);
-  
+
   if (!post || !post.slug) {
-    console.log(post);
-    console.error("Post is missing");
+    console.error("Post object is undefined");
     return <p>Loading...</p>;
   }
 
@@ -43,27 +42,32 @@ const PostContent = ({ post }) => {
     }
   };
 
-  // const imagePath = `/images/posts/${post.slug}/${post.image}`;
-  const imagePath =
-    post?.slug && post?.image
-      ? `/images/posts/${post.slug}/${post.image}`
-      : "/default-image-path.png"; // Provide a default or fallback image path
+  const imagePath = `/images/posts/${post.slug}/${post.image}`;
 
   const customRenderers = {
-    paragraph(paragraph) {
+    // img(image) {
+    //   return (
+    //     <Image
+    //       src={`/images/posts/${post.slug}/${image.src}`}
+    //       alt={image.alt}
+    //       width={600}
+    //       height={300}
+    //     />
+    //   );
+    // },
+
+    p(paragraph) {
       const { node } = paragraph;
 
       if (node.children[0].tagName === "img") {
         const image = node.children[0];
+        const src = `/images/posts/${post.slug}/${image.properties.src}`;
+
+        console.log("image path here --> Image src:", src); // Debugging the path
 
         return (
           <div className={classes.image}>
-            <Image
-              src={`/images/posts/${post.slug}/${image.properties.src}`}
-              alt={image.alt}
-              width={600}
-              height={300}
-            />
+            <Image src={src} alt={image.alt} width={600} height={300} />
           </div>
         );
       }
@@ -79,14 +83,14 @@ const PostContent = ({ post }) => {
             <button onClick={() => handleCopy(code)} style={btnStyle(copied)}>
               {copied ? "Copied!" : "Copy"}
             </button>
-            <SyntaxHighlighter
+            <Syntax
               style={atomDark}
               language={language}
               PreTag="div"
               {...props}
             >
               {code}
-            </SyntaxHighlighter>
+            </Syntax>
           </div>
         );
       }
