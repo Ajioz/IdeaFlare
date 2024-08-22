@@ -26,6 +26,12 @@ const btnStyle = (props) => ({
 
 const PostContent = ({ post }) => {
   const [copied, setCopied] = useState(false);
+  
+  if (!post || !post.slug) {
+    console.log(post);
+    console.error("Post is missing");
+    return <p>Loading...</p>;
+  }
 
   const handleCopy = async (code) => {
     try {
@@ -36,7 +42,12 @@ const PostContent = ({ post }) => {
       console.error("Failed to copy code: ", err);
     }
   };
-  const imagePath = `/images/posts/${post.slug}/${post.image}`;
+
+  // const imagePath = `/images/posts/${post.slug}/${post.image}`;
+  const imagePath =
+    post?.slug && post?.image
+      ? `/images/posts/${post.slug}/${post.image}`
+      : "/default-image-path.png"; // Provide a default or fallback image path
 
   const customRenderers = {
     paragraph(paragraph) {
