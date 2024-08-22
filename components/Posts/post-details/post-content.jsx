@@ -63,7 +63,7 @@ const PostContent = ({ post }) => {
         const image = node.children[0];
         const src = `/images/posts/${post.slug}/${image.properties.src}`;
 
-        console.log("image path here --> Image src:", src); // Debugging the path
+        // console.log("image path here --> Image src:", src); // Debugging the path
 
         return (
           <div className={classes.image}>
