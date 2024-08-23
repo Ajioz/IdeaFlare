@@ -1,8 +1,8 @@
 import { MongoClient } from "mongodb";
 
-const connectString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_cluster}.wu3eq.mongodb.net/${mongodb_database}?retryWrites=true&w=majority`;
+const connectString = `${process.env.mongodb_username}:${process.env.mongodb_password}${process.env.mongodb_cluster}/${mongodb_database}`;
 
-const devDb = process.env.MONGODB_URL;
+// const devDb = process.env.MONGODB_URL;
 
 export const connectDB = async () => {
   return await MongoClient.connect(connectString);
