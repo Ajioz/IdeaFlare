@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+.next.config.js
 
 # testing
 /coverage
@@ -29,9 +30,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-.next.config.js
 .next.config
-next.config
+.next.config
+.next.config
+/config/.next.config.js
 
 # vercel
 .vercel
