@@ -57,7 +57,7 @@ const contactHandler = async (req, res) => {
       return res.status(201).json({
         message: "Message saved successfully!",
         newMessage,
-        status: true,
+        status: true,z
       });
     } catch (error) {
       console.error("Error processing request:", error);
